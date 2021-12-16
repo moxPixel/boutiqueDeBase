@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<h1 class="text-center mt-2">Inscription</h1>
+<section class="col-md-4 mx-auto">
+    {% for label, messages in app.flashes %}
+    {% for message in messages %}
+    <div class="alert alert-{{ label }} alert-dismissible fade show" role="alert">
+        {% if label == 'success' %}
+        <span class="alert-inner--icon"><i class="fe fe-thumbs-up"></i></span>
+        {% else %}
+        <span class="alert-inner--icon"><i class="fe fe-thumbs-down"></i></span>
+        {% endif %}
+        <span class="alert-inner--text"><strong>{{ label | title }} : </strong> {{ message | raw }}</span>
+        <button type="button" class="btn btn-primary close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endfor %}
+	{{form_start(form) }} {# formulaire eclaté pour mise en forme ou atribution d'atribut#} 
+	{{form_row(form.firstname) }}
+    {{form_row(form.lastname) }}
+    {{form_row(form.email) }}
+    {{form_row(form.password) }}
+    <hr>
+    {{form_row(form.submit) }}
+	{{form_end(form) }}
+</section>
+
+{% endblock %}

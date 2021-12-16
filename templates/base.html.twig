@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Home page{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+        <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/css/carousel.css')}}" rel="stylesheet">
+             {#  Nous mettons ici nos fichier css #}
+        {% endblock %}
+
+        {% block javascripts %}
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="{{asset('assets/js/bootstrap.bundle.js')}}"></script>
+            {#  Nous mettons ici nos fichier javascript #}
+        {% endblock %}
+    </head>
+
+    <body>
+
+        <main role="main">
+        {% include "components/header.html.twig" %}
+      
+        {% block body %}    {# creation d'un block body representant le corp de page #}
+          
+
+        {#  Nous ne mettons rien ici car ce block changera en fonction de l'utilisateur et des pages charger #}
+        {% endblock %}
+
+        {% include "components/footer.html.twig" %}
+        </main> 
+
+    </body>
+
+</html>

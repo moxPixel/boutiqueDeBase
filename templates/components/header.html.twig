@@ -1,0 +1,31 @@
+<!-- HEADER -->
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="{{ path('home') }}">Ma boutique</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Nos produits</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Qui somme nous ?</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <!-- Englober les liens d une div class nav-item-custom et allez en css-->
+           <div class="nav-item-custom">
+            {% if app.user %}
+            <a href="{{path('account')}}">Mon compte <small>({{app.user.firstname}})</small></a> | <a href="{{path('app_logout')}}">Deconnexion</a>
+            {% else %}
+            <a href="{{path('app_login')}}">Connexion</a> | <a href="{{path('register')}}">Inscription</a>
+            {% endif %} 
+           </div>
+        </div>
+    </nav>
+</header>
